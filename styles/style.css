@@ -112,7 +112,7 @@ header {
     margin: 44px auto;
     position: relative;
     max-width: 1440px;
-    padding-bottom: 600px;
+    padding-bottom: 74px;
 }
 .page-main img {
     position: absolute;
@@ -122,15 +122,12 @@ header {
     z-index: -1;
 }
 .form {
-    position: absolute;
-    left: 0;
-    width: 445px;
-    margin-top: 67px;
     background-color: #10375C;
-    z-index: 999;
-    padding: 40px;
-    color: #ffffff;
+    max-width: 445px;
     box-sizing: border-box;
+    color: #FFFFFF;
+    padding: 39px 41px 33px;
+    margin-top: 67px;
 }
 .form__h2 {
     color: #ffffff;
@@ -181,6 +178,7 @@ option {
     border: none;
     padding: 16px 0;
     font-size: 18px;
+    font-family: 'Lato', sans-serif;
     font-weight: 700;
     margin-top: 10px;
     width: 100%;
@@ -435,6 +433,7 @@ option {
 }
 .page-partners {
     padding-bottom: 68px;
+    text-align: center;
 }
 .partners-head {
     text-align: center;
@@ -690,6 +689,9 @@ option {
 .member-item__img {
     padding-right: 84px;
 }
+.member-item__img img {
+    width: 100%;
+}
 .member-item--text {
     flex: 0 0 445px;
     padding-top: 57px;
@@ -760,6 +762,73 @@ footer {
     color: #ffffff;
     text-decoration: none;
 }
+.menu {
+    background-color: #FFFFFF;
+    border: 1px solid transparent;
+    padding: 13px 11px;
+    border-radius: 100%;
+    transition: .2s ease border;
+    cursor: pointer;
+ }
+ .menu-item {
+    display: block;
+    width: 29px;
+    height: 2px;
+    background-color: #10375C;
+    margin-bottom: 8px;
+ }
+ .menu-item:last-child {
+    margin-bottom: 0;
+ }
+ .menu:hover {
+    border: 1px solid #10375C;
+ }
+ .modal {
+     position: fixed;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%) scale(0);
+     transition: 200ms ease-in-out;
+     border-radius: 10px;
+     z-index: 10;
+     background-color: white;
+     width: 500px;
+     max-width: 80%;
+     padding: 30px 20px;
+ }
+ .modal.active {
+     transform: translate(-50%, -50%) scale(1);
+ }
+ .modal .close-button {
+     cursor: pointer;
+     border: none;
+     outline: none;
+     background: none;
+     font-size: 39px;
+     font-weight: 400;
+     position: absolute;
+     padding: 0;
+     right: 11px;
+     top: 0;
+ }
+ .modal-body {
+     padding: 10px 15px;
+ }
+ #overlay {
+ position: fixed;
+ opacity: 0;
+ transition: 200ms ease-in-out;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background-color: rgba(0, 0, 0, .5);
+ pointer-events: none;
+ }
+ #overlay.active {
+ opacity: 1;
+ pointer-events: all;
+ }
 @media (min-width: 871px) {
     .menu {
         display: none;
@@ -771,6 +840,9 @@ footer {
     }
     .title {
         flex-direction: column;
+    }
+    .title__h1 {
+        padding-right: 0;
     }
     .title__text {
         flex: 0 0 auto;
@@ -785,15 +857,43 @@ footer {
         margin-left: 10px;
         margin-right: 10px;
     }
+    .footer {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5%;
+    }
+    ._footer-main {
+        grid-column: 1 / 5;
+    }
+    .footer-item__text {
+        max-width: 100%;
+    }
+    .nav__item {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
 }
 @media (max-width: 870px) {
     nav,
     .control {
         display: none;
     }
+    .modal .nav {
+        flex-direction: column;
+        text-align: center;
+        padding-left: 0px;
+    }
+    .modal .nav__item {
+        margin-bottom: 20px;
+    }
+    .modal .control {
+        display: flex;
+        justify-content: center;
+        margin-top: 25px;
+    }
     .menu {
         background-color: #ffffff;
-        border: 1px solid #10375C;
+        border: 1px solid transparent;
         padding: 13px 11px;
         border-radius: 100%;
         transition: .2s ease border;
@@ -837,5 +937,232 @@ footer {
     }
     .blog {
         grid-template-columns: repeat(1, 1fr);
+    }
+    .page-member {
+        padding-bottom: 30px;
+    }
+    .member {
+        align-items: center;
+    }
+    .member-item__img {
+        padding-right: 0;
+    }
+    .member-item--text {
+        padding-top: 0;
+    }
+}
+@media (max-width: 768px) {
+    header {
+        margin: 20px auto;
+    }
+    .title__h1 {
+        font-size: 45px;
+    }
+    .title__text, .subtitle {
+        font-size: 18px;
+    }
+    .title-h2 {
+        font-size: 36px;
+    }
+    .form {
+        padding: 28px 35px;
+        margin-top: 40px;
+    }
+    .form__h2 {
+        font-size: 30px;
+    }
+    .form__btn {
+        font-size: 17px;
+    }
+    .page-space-head {
+        flex-direction: column;
+        text-align: center;
+    }
+    .page-space-head__text {
+        flex: 0 0 auto;
+        max-width: 580px;
+    }
+    .spaces {
+        flex-direction: column;
+        max-width: 400px;
+        margin: 26px auto 0;
+    }
+    .spaces-cover {
+        height: 200px;
+    }
+    .spaces-hover {
+        display: none;
+    }
+    .spaces-item {
+        margin-bottom: 30px;
+    }
+    .page-space {
+        padding-bottom: 55px;
+    }
+    .why {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            'rooms event'
+            'countries internet'
+            'startup communities'
+            'sidebar sidebar';
+    }
+    .why-item__text {
+        font-size: 18px;
+    }
+    .why-item__h3 {
+        font-size: 14px;
+        margin: 0;
+    }
+    .why-item._sidebar {
+        padding: 28px 35px;
+    }
+    .partners-item__img {
+        flex: 0 0 48%;
+        margin-bottom: 20px;
+    }
+    .faq-title {
+        font-size: 20px;
+    }
+    .faq-item {
+        padding: 30px 25px 50px;
+    }
+    .news-head {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+@media (max-width: 680px) {
+    .faq {
+        flex-direction: column;
+    }
+    .member-item--text {
+        flex: 0 0 100%;
+        font-size: 16px;
+    }
+    .footer {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+    ._footer-main {
+        grid-column: 1 / 3;
+    }
+    .faq-head {
+        max-width: 580px;
+        width: unset;
+    }
+    .faq-item {
+        margin-bottom: 40px;
+    }
+    .blog {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    ._main .blog-cover, ._main .blog-cover__img {
+        width: 250px;
+    }
+    ._main .blog-cover {
+        flex: 0 0 250px;
+    }
+    .blog-text__link {
+        font-size: 20px;
+        margin-bottom: 13px;
+    }
+}
+
+@media (max-width: 576px) {
+    .modal .control {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 12px;
+    }
+    .control__link {
+        display: block;
+    }
+    .page-main {
+        padding-bottom: 0;
+    }
+    .title__h1 {
+        font-size: 24px;
+    }
+    .title__text {
+        font-size: 16px;
+    }
+    .subtitle {
+        font-size: 16px;
+    }
+    .page-main img {
+        display: none;
+    }
+    .form__h2 {
+        font-size: 22px;
+    }
+    .form {
+        padding: 20px 15px;
+    }
+    .form__btn {
+        font-size: 15px;
+    }
+    .title-h2 {
+        font-size: 20px;
+    }
+    .why-item__h3 span {
+        font-size: 23px;
+        padding-bottom: 0px;
+    }
+    .page-space {
+        padding-bottom: 25px;
+    }
+    
+    .partners-item__img img {
+        max-width: 120px;
+    }
+    .blog {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    ._main {
+        grid-column: 1 / 2;
+    }
+    ._main .blog-cover, ._main .blog-cover__img {
+        width: 150px;
+    }
+    ._main .blog-cover {
+        flex: 0 0 150px;
+    }
+    .blog-text__link {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    .blog-text_desc {
+        display: none;
+    }
+    .blog-author-cover {
+        width: 46px;
+        height: 46px;
+        margin-right: 15px;
+    }
+    .blog-author-text__link, .blog-author-text__company {
+        font-size: 14px;
+    }
+    .blog-author-text__link, .blog-author-text__company {
+        font-size: 14px;
+    }
+    .member__btn {
+        font-size: 14px;
+        padding: 15px 40px;
+    }
+}
+@media (max-width: 400px) {
+    ._main .blog-cover {
+        display: none;
+    }
+    .why-item__h3::before {
+        display: none;
+    }
+    .why-item__h3 {
+        padding-left: 0;
+    }
+    
+    .partners-item__img img {
+        max-width: 90px;
     }
 }
